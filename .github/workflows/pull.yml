@@ -18,7 +18,7 @@ jobs:
     - uses: evantorrie/mott-the-tidier@v1-beta
       id: modtidy
       with:
-        files: '**/go.mod'
+        gomods: '**/go.mod'
         gosum_only: true
     - name: commit changes
       id: autocommit
