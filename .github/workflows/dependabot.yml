@@ -8,6 +8,14 @@ jobs:
     if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') }}
     runs-on: ubuntu-latest
     steps:
+    - name: environment
+      run: |
+        echo ">environment"
+        env
+        echo ">event"
+        echo ${GITHUB_EVENT_NAME}
+        echo ">payload"
+        cat ${GITHUB_EVENT_PATH}
     - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
