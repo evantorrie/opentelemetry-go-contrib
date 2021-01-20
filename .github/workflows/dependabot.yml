@@ -18,7 +18,7 @@ jobs:
         cat ${GITHUB_EVENT_PATH}
     - uses: actions/checkout@v2
       with:
-        repo: ${{ github.pullrequest.head.repo }}
+        repository: ${{ github.pullrequest.head.repo }}
         ref: ${{ github.pullrequest.head.ref }}
     - uses: actions/setup-go@v2
       with:
