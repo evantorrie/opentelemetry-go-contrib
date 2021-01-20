@@ -7,13 +7,18 @@ jobs:
   mod_tidier:
 #    if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') }}
     runs-on: ubuntu-latest
+    env:
+      REMOTE_EVENT: ${{ github.event_name }}
+      REMOTE_REPO_NAME: ${{ github.event.pull_request.head.repo.full_name }}
+      REMOTE_REPO_SHA: ${{ github.event.pull_request.head.ref }}
     steps:
     - name: environment
       env:
         DEBUG_FLAG: ${{secrets.ACTIONS_STEP_DEBUG }}
-        REMOTE_REPO_NAME: ${{ github.event.pull_request.head.repo.full_name }}
-        REMOTE_REPO_SHA: ${{ github.event.pull_request.head.ref }}
       run: |
+        echo "REMOTE_REPO_NAME=$REMOTE_REPO_NAME"
+        echo "REMOTE_REPO_SHA=$REMOTE_REPO_SHA"
+        echo "REMOTE_EVENT=$REMOTE_EVENT"
         echo ">environment"
         env
         echo ">event"
