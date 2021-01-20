@@ -1,7 +1,9 @@
 name: Dependabot-Tidier
 on:
   pull_request_target:
-    types: [ assigned, opened, synchronize, reopened, labeled ]
+    types: [ labeled ]
+  pull_request:
+    types: [ labeled ]
 
 jobs:
   mod_tidier:
