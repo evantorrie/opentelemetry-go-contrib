@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: environment
+      env:
+        DEBUG_FLAG: ${{secrets.ACTIONS_STEP_DEBUG }}
       run: |
         echo ">environment"
         env
@@ -16,7 +18,11 @@ jobs:
         echo ${GITHUB_EVENT_NAME}
         echo ">payload"
         cat ${GITHUB_EVENT_PATH}
+        echo "SECRET"
+        echo "$DEBUG_FLAG"
     - uses: actions/checkout@v2
+      env:
+        DEBUG_FLAG: ${{secrets.ACTIONS_STEP_DEBUG }}
       with:
         repository: ${{ github.pullrequest.head.repo }}
         ref: ${{ github.pullrequest.head.ref }}
