@@ -24,7 +24,7 @@ jobs:
       env:
         DEBUG_FLAG: ${{secrets.ACTIONS_STEP_DEBUG }}
       with:
-        repository: ${{ github.event.pull_request.head.repo }}
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
         ref: ${{ github.event.pullrequest.head.ref }}
     - uses: actions/setup-go@v2
       with:
