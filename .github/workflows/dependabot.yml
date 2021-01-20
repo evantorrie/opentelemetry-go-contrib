@@ -1,11 +1,11 @@
 name: Dependabot-Tidier
 on:
   pull_request_target:
-    types: [ labeled ]
+    types: [ assigned, opened, synchronize, reopened, labeled ]
 
 jobs:
   mod_tidier:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') }}
+#    if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') }}
     runs-on: ubuntu-latest
     steps:
     - name: environment
