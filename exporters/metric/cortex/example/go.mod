@@ -12,5 +12,4 @@ require (
 	go.opentelemetry.io/contrib/exporters/metric/cortex/utils v0.15.1
 	go.opentelemetry.io/otel v0.15.0
 	go.opentelemetry.io/otel/sdk v0.15.0
-	gopkg.in/yaml.v2 v2.2.5 // indirect
 )
