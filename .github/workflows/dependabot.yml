@@ -29,7 +29,7 @@ jobs:
         cat ${GITHUB_EVENT_PATH}
         echo -e "\nSECRET"
         echo "DEBUG_FLAG=$DEBUG_FLAG"
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       env:
         DEBUG_FLAG: ${{secrets.ACTIONS_STEP_DEBUG }}
       with:
